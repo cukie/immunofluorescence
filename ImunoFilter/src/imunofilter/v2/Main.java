@@ -1,6 +1,5 @@
 package imunofilter.v2;
 
-import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,7 +8,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
-import javax.media.jai.*;
 
 public class Main {
 
@@ -29,25 +27,25 @@ public class Main {
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out
-				.println("Enter the absolute file path of the mask directory: ");
+		.println("Enter the absolute file path of the mask directory: ");
 		String maskPath = keyboard.nextLine();
 
 		System.out
-				.println("Enter the absolute file path of the markers directory: ");
+		.println("Enter the absolute file path of the markers directory: ");
 		String markerPath = keyboard.nextLine();
 
 		System.out
-				.println("Enter the min and max values for mask red paramater:");
+		.println("Enter the min and max values for mask red paramater:");
 		int redMin = keyboard.nextInt();
 		int redMax = keyboard.nextInt();
 
 		System.out
-				.println("Enter the min and max values for mask green parameter:");
+		.println("Enter the min and max values for mask green parameter:");
 		int greenMin = keyboard.nextInt();
 		int greenMax = keyboard.nextInt();
 
 		System.out
-				.println("Enter the min and max values for mask blue parameter:");
+		.println("Enter the min and max values for mask blue parameter:");
 		int blueMin = keyboard.nextInt();
 		int blueMax = keyboard.nextInt();
 
@@ -57,8 +55,11 @@ public class Main {
 		System.out.println("Enter the threshold value for the green marker: ");
 		int markerGreenThreshold = keyboard.nextInt();
 
+		System.out.println("Enter an absolute filepath for your results");
+		String resultsPath = keyboard.next();
+
 		System.out
-				.println("Enter a file name for your results(do not add file ending): ");
+		.println("Enter a file name for your results(do not add file ending): ");
 		String resultsName = keyboard.next();
 
 		/*
@@ -85,8 +86,7 @@ public class Main {
 		 */
 
 		FileWriter fw = new FileWriter(
-				"/Users/cukierma/Dropbox/Siiiiiiiiii Dropbox/for Gil JPGs july 15 2014/"
-						+ resultsName + ".txt");
+				resultsPath + resultsName + ".txt");
 		BufferedWriter bw = new BufferedWriter(fw);
 
 		String delimeter = "|";
@@ -129,16 +129,15 @@ public class Main {
 
 			// outputting the mask and then markers to the desktop (6 total
 			// images)
-			
+
 			try {
 				ImageIO.write(
 						imageSet[filenum].getMaskNoRed(),
 						"jpg",
 						new File(
-								"/Users/cukierma/Dropbox/Siiiiiiiiii Dropbox/for Gil JPGs july 15 2014/Kidney Results/maskNoRed"
-										+ filenum + ".jpg"));
+								resultsPath + "/maskNoRed" + filenum + ".jpg"));
 			} catch (Exception e) {
-				System.out.println("well this failed");
+				System.out.println("failure to write image");
 			}
 
 			try {
@@ -146,10 +145,9 @@ public class Main {
 						imageSet[filenum].getMaskGreen(),
 						"jpg",
 						new File(
-								"/Users/cukierma/Dropbox/Siiiiiiiiii Dropbox/for Gil JPGs july 15 2014/Kidney Results/maskGreen"
-										+ filenum + ".jpg"));
+								resultsPath + "/maskGreen" + filenum + ".jpg"));
 			} catch (Exception e) {
-				System.out.println("well this failed");
+				System.out.println("failure to write image");
 			}
 
 			try {
@@ -157,10 +155,9 @@ public class Main {
 						imageSet[filenum].getMaskGreenNoRed(),
 						"jpg",
 						new File(
-								"/Users/cukierma/Dropbox/Siiiiiiiiii Dropbox/for Gil JPGs july 15 2014/Kidney Results/maskGreenNoRed"
-										+ filenum + ".jpg"));
+								resultsPath + "/maskGreenNoRed" + filenum + ".jpg"));
 			} catch (Exception e) {
-				System.out.println("well this failed");
+				System.out.println("failure to write image");
 			}
 
 			try {
@@ -168,10 +165,9 @@ public class Main {
 						imageSet[filenum].getResultGreen(),
 						"jpg",
 						new File(
-								"/Users/cukierma/Dropbox/Siiiiiiiiii Dropbox/for Gil JPGs july 15 2014/Kidney Results/resultGreen"
-										+ filenum + ".jpg"));
+								resultsPath + "/resultGreen" + filenum + ".jpg"));
 			} catch (Exception e) {
-				System.out.println("well this failed");
+				System.out.println("failure to write image");
 			}
 
 			try {
@@ -179,10 +175,9 @@ public class Main {
 						imageSet[filenum].getResultNoRed(),
 						"jpg",
 						new File(
-								"/Users/cukierma/Dropbox/Siiiiiiiiii Dropbox/for Gil JPGs july 15 2014/Kidney Results/resultNoRed"
-										+ filenum + ".jpg"));
+								resultsPath + "/resultNoRed" + filenum + ".jpg"));
 			} catch (Exception e) {
-				System.out.println("well this failed");
+				System.out.println("failure to write image");
 			}
 
 			try {
@@ -190,12 +185,11 @@ public class Main {
 						imageSet[filenum].getResultGreenNoRed(),
 						"jpg",
 						new File(
-								"/Users/cukierma/Dropbox/Siiiiiiiiii Dropbox/for Gil JPGs july 15 2014/Kidney Results/resultGreenNoRed"
-										+ filenum + ".jpg"));
+								resultsPath + "/resultGreenNoRed" + filenum + ".jpg"));
 			} catch (Exception e) {
 				System.out.println("well this failed");
 			}
-			
+
 
 			// getting data from the image results we have
 			double greenCoverage;
@@ -219,7 +213,7 @@ public class Main {
 			} catch (Exception e) {
 				greenNoRedCoverage = 0;
 			}
-			
+
 
 			// distributions (averages)
 			double greenUnderGreenMean;
@@ -653,30 +647,30 @@ public class Main {
 			// percent of green under each mask
 			double percentGreenUnderGreen = (double) ((double) imageSet[filenum]
 					.getListOfGreenUnderGreen().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ greenCoverage;
+							.getTotalPixels())
+							/ greenCoverage;
 			double percentGreenUnderNoRed = (double) ((double) imageSet[filenum]
 					.getListOfGreenUnderNoRed().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ noRedCoverage;
+							.getTotalPixels())
+							/ noRedCoverage;
 			double percentGreenUnderGreenNoRed = (double) ((double) imageSet[filenum]
 					.getListOfGreenUnderGreenNoRed().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ greenNoRedCoverage;
+							.getTotalPixels())
+							/ greenNoRedCoverage;
 
 			// percent of red under each mask
 			double percentRedUnderGreen = (double) ((double) imageSet[filenum]
 					.getListOfRedUnderGreen().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ greenCoverage;
+							.getTotalPixels())
+							/ greenCoverage;
 			double percentRedUnderNoRed = (double) ((double) imageSet[filenum]
 					.getListOfRedUnderNoRed().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ noRedCoverage;
+							.getTotalPixels())
+							/ noRedCoverage;
 			double percentRedUnderGreenNoRed = (double) ((double) imageSet[filenum]
 					.getListOfRedUnderGreenNoRed().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ greenNoRedCoverage;
+							.getTotalPixels())
+							/ greenNoRedCoverage;
 
 			// colocalized under each mask
 			// error checking - make sure greenCombined and redCombined are the
@@ -688,16 +682,16 @@ public class Main {
 
 			double percentColocalizedUnderGreen = (double) ((double) imageSet[filenum]
 					.getListOfGreenCombinedUnderGreen().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ greenCoverage;
+							.getTotalPixels())
+							/ greenCoverage;
 			double percentColocalizedUnderNoRed = (double) ((double) imageSet[filenum]
 					.getListOfGreenCombinedUnderNoRed().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ noRedCoverage;
+							.getTotalPixels())
+							/ noRedCoverage;
 			double percentColocalizedUnderGreenNoRed = (double) ((double) imageSet[filenum]
 					.getListOfGreenCombinedUnderGreenNoRed().size() / (double) imageSet[filenum]
-					.getTotalPixels())
-					/ greenNoRedCoverage;
+							.getTotalPixels())
+							/ greenNoRedCoverage;
 
 			// logic for writing results to file
 
