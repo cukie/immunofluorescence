@@ -2,15 +2,11 @@ package imunofilter.v2;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
-import javax.media.jai.*;
 
 // encapsulates two buffered images. The original, from which the mask will be created, 
 // and the second image that the mask will be placed upon
@@ -477,15 +473,7 @@ public class ImunoSet {
 			for (int j = 0; j < originalNoMask.getWidth(); j++) {
 
 				// create color object to split component values
-				Color c = new Color(maskGreenNoRed.getRGB(j, i)); // error
-																	// created
-																	// on
-																	// purpose.
-																	// i have to
-																	// pull from
-																	// mask, not
-																	// original
-																	// right?
+				Color c = new Color(maskGreenNoRed.getRGB(j, i)); 
 				Color d = new Color(originalToMask.getRGB(j, i));
 
 				// if mask is purple, set underlying marker pixel to results
