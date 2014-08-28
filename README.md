@@ -7,7 +7,7 @@ java bulk imaging analysis of pathological immunofluourescent images
 
 Current presentation and forthcoming peer reviewed paper:
 
-Desmoplastic 3D-adhesion structures orchestrate a tumor-associated ECM induced 	myofibroblastic phenotype – publication in progress (current poster and presentation)
+Desmoplastic 3D-adhesion structures orchestrate...  – publication in progress (current poster and presentation)
 	  J. Franco-Barraza1, T. Luong1, N. Shah1, R. Madhani1, <b>G. Cukierman2</b>, K. Alpaugh1, K. Devarajan1, 	J. Hoffman1, R. Uzzo1, E. Dulaimi1, E. Cukierman1; 1Fox Chase Cancer Center, Philadelphia, 	PA. 2University of North Carolina, Chapel Hill, NC. USA. 
 
 
