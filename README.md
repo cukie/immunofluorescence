@@ -10,3 +10,7 @@ During the Summer of 2014 - collaboration with Dr. Franco-Barraza at Fox Chase C
 Current presentation and forthcoming peer reviewed paper:
 
 Desmoplastic 3D-adhesion structures orchestrate... – publication in progress (current poster and presentation) J. Franco-Barraza1, T. Luong1, N. Shah1, R. Madhani1, G. Cukierman2, K. Alpaugh1, K. Devarajan1, J. Hoffman1, R. Uzzo1, E. Dulaimi1, E. Cukierman1; 1Fox Chase Cancer Center, Philadelphia, PA. 2University of North Carolina, Chapel Hill, NC. USA.
+
+
+
+****NOTE: This is and was a working early version of the program. While all functionality is present, a more user friendly version, as well as some updates may exist. Please contact the Cukierman lab with all inquiries. 
