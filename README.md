@@ -1,7 +1,8 @@
 ### NOTE
 This application is now outdated. Please see cukie/SMIA-CUKIE repository for the SMIA-CUKIE application.
 It can be thought of as v2. It's much more general to other use cases, can take a variable number of images as input,
-and has an easier-to-use graphical interface. 
+and has an easier-to-use graphical interface. While this version only analyzed RGB's, SMIA-CUKIE can take multiple image
+formats (most notably TIFFs) as monochramitic inputs. 
 
 
 immunofluorescence
