@@ -1,8 +1,11 @@
+### NOTE
+This application is now outdated. Please see cukie/SMIA-CUKIE repository for the SMIA-CUKIE application.
+It can be thought of as v2. It's much more general to other use cases, can take a variable number of images as input,
+and has an easier-to-use graphical interface. 
+
+
 immunofluorescence
 ==================
-
-java bulk imaging analysis of pathological immunofluourescent images
-
 
 java bulk imaging analysis of pathological immunofluourescent images
 
